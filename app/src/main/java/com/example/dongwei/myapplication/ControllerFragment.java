@@ -18,6 +18,7 @@ import java.io.IOException;
 public class ControllerFragment extends Fragment {
     final SocketUtils utils = new SocketUtils();
     private static final String TAG = "ControllerFragment";
+    Switch sw;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,17 +35,17 @@ public class ControllerFragment extends Fragment {
         utils.closeConnection(new SocketUtils.OnCloseListener() {
             @Override
             public void onClose(boolean state) {
-                if(state){
-                    Log.d(TAG,"close ok");
-                }else {
-                    Log.d(TAG,"close fail");
+                if (state) {
+                    Log.d(TAG, "close ok");
+                } else {
+                    Log.d(TAG, "close fail");
                 }
             }
         });
     }
 
     private void setupView(View v) {
-        final Switch sw = (Switch) v.findViewById(R.id.switch1);
+        sw = (Switch) v.findViewById(R.id.switch1);
         /*传统方式*/
         /*new Thread() {
             @Override
@@ -97,14 +98,21 @@ public class ControllerFragment extends Fragment {
         });
     }
 
-    private void sendMsg(String msg){
+    private void sendMsg(String msg) {
         utils.sendMsg(msg, new SocketUtils.OnSentListener() {
             @Override
-            public void onSent(boolean state) {
-                if(state){
-                    Log.d(TAG,"sent ok");
-                }else {
-                    Log.d(TAG,"sent fail");
+            public void onSent(final boolean state) {
+                if (state) {
+                    Log.d(TAG, "sent ok");
+                } else {
+                    Log.d(TAG, "sent fail");
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            sw.setEnabled(state);
+                            Toast.makeText(getContext(), "服务器已断开", Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             }
         });
