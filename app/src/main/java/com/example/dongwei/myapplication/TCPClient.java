@@ -31,7 +31,11 @@ public class TCPClient {
     }
 
     public boolean getSocketState(){
-        return socket.isConnected();
+        if(socket!=null){
+            return socket.isConnected();
+        }else{
+            return false;
+        }
     }
 
     /**

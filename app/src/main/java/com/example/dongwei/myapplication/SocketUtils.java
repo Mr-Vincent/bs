@@ -46,8 +46,12 @@ public class SocketUtils {
 
     public void closeConnection(OnCloseListener listener){
         try {
-            client.close();
-            listener.onClose(true);
+            if(client != null&&client.getSocketState()){
+                client.close();
+                listener.onClose(true);
+            }else {
+                listener.onClose(false);
+            }
         } catch (IOException e) {
             listener.onClose(false);
             e.printStackTrace();
