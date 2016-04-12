@@ -1,6 +1,7 @@
 package com.example.dongwei.myapplication;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Created by Administrator on 2016/4/10.
@@ -8,7 +9,7 @@ import java.io.IOException;
  * @author:Administrator
  * @date:2016/4/10
  */
-public class SocketUtils {
+public class SocketUtils implements Serializable{
     private final TCPClient client = new TCPClient();
     public  void connect2Server(final String ip, final int port,final OnConnectedListener listener){
         new Thread(){

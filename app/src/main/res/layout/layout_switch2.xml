@@ -9,9 +9,11 @@
         android:id="@+id/color_picker_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_vertical|center_horizontal"
         colorpicker:center_color="#FFFFFF"
         colorpicker:center_radius="10dp"
-        colorpicker:circle_radius="150dp" />
+        colorpicker:circle_radius="150dp"
+        />
 
 </LinearLayout>

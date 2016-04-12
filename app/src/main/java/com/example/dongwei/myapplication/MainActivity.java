@@ -26,6 +26,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
 {
     private DrawerLayout mDrawerLayout;
+    private SocketUtils utils = new SocketUtils();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +66,8 @@ public class MainActivity extends AppCompatActivity
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(new ControllerFragment(), "SWITCHER");
-        adapter.addFragment(new ColorFragment(), "COLOR");
+        adapter.addFragment(ControllerFragment.getInstance(utils), "SWITCHER");
+        adapter.addFragment(ColorFragment.getInstance(utils), "COLOR");
         viewPager.setAdapter(adapter);
     }
 

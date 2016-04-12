@@ -111,11 +111,11 @@ public class ColorPicker extends View {
                             (int) event.getX(), (int) event.getY()), bigCircle
                             - rudeRadius);
                 }
-                listener.onColorChange(bitmapBack.getPixel(mRockPosition.x,
-                        mRockPosition.y));
+
                 break;
             case MotionEvent.ACTION_UP:// 抬起
-
+                listener.onColorChange(bitmapBack.getPixel(mRockPosition.x,
+                        mRockPosition.y));
                 break;
 
             default:

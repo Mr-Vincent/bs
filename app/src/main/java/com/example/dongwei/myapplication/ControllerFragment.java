@@ -16,9 +16,20 @@ import java.io.IOException;
  * Created by dongwei on 16/4/9.
  */
 public class ControllerFragment extends Fragment {
-    final SocketUtils utils = new SocketUtils();
+    SocketUtils utils;
     private static final String TAG = "ControllerFragment";
     Switch sw;
+
+    public ControllerFragment() {
+    }
+    public static Fragment getInstance(SocketUtils obj){
+        ControllerFragment cf = new ControllerFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable( "arg", obj);
+        cf.setArguments(bundle);
+        return cf;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,7 +79,7 @@ public class ControllerFragment extends Fragment {
         /*回调方式*/
         String ip = "192.168.1.101";
         int port = 9000;
-
+        utils = (SocketUtils) getArguments().getSerializable("arg");
         utils.connect2Server(ip, port, new SocketUtils.OnConnectedListener() {
             @Override
             public void onConnected(final boolean state) {
