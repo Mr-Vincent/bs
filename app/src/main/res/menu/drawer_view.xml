@@ -20,15 +20,15 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@mipmap/ic_1"
-            android:title="Home" />
+            android:title="Controller" />
         <item
-            android:id="@+id/nav_messages"
+            android:id="@+id/nav_about"
             android:icon="@mipmap/ic_like"
-            android:title="Messages" />
+            android:title="AboutMe" />
         <item
-            android:id="@+id/nav_friends"
+            android:id="@+id/nav_setting"
             android:icon="@mipmap/ic_setting"
-            android:title="Friends" />
+            android:title="Settings" />
 
     </group>
 
