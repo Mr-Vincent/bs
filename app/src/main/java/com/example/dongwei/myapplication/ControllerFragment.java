@@ -77,8 +77,8 @@ public class ControllerFragment extends Fragment {
         sw.setEnabled(isEnable);*/
 
         /*回调方式*/
-        String ip = "192.168.1.101";
-        int port = 9000;
+        String ip = Constants.IP_ADDRESS;
+        int port = Constants.PORT;
         utils = (SocketUtils) getArguments().getSerializable("arg");
         utils.connect2Server(ip, port, new SocketUtils.OnConnectedListener() {
             @Override
@@ -100,10 +100,10 @@ public class ControllerFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
                 if (isChecked) {
                     Log.d("switch", "on");
-                    sendMsg("on");
+                    sendMsg("ledon");
                 } else {
                     Log.d("switch", "off");
-                    sendMsg("off");
+                    sendMsg("ledoff");
                 }
             }
         });

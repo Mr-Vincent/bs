@@ -59,16 +59,19 @@ public class TCPClient {
      * @return
      */
     private byte[] str2bytes(String str){
-        str = str + "\r\n";
+//        str = str + "\r\n";
         return str.getBytes();
     }
 
     public static void main(String[] args) {
         TCPClient client = new TCPClient();
         try {
-            boolean connectServer = client.connectServer("192.168.1.101", 9000);
+            boolean connectServer = client.connectServer("192.168.0.103", 9090);
             if(connectServer){
-                client.sendMsg("hello world");
+                client.sendMsg("ledon");
+                while(true){
+
+                }
             }else{
                 System.out.println("connection cannot be established");
             }

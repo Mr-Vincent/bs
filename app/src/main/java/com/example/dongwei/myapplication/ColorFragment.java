@@ -72,10 +72,9 @@ public class ColorFragment extends Fragment {
         Integer gg = Integer.parseInt(g, 16);
         Integer bb = Integer.parseInt(b, 16);
 
-        String rgb = rr+"|"+gg+"|"+bb;
+        String rgb = " r"+rr+",g"+gg+",b"+bb;//发送格式
         sendMsg(rgb);
-
-        Log.d(TAG, "" + rr + "-" + gg + "-" + bb);
+        Log.d(TAG, rgb);
 
     }
 
