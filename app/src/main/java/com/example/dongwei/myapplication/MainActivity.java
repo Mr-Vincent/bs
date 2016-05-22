@@ -83,12 +83,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            startActivityByName(MainActivity.class, true);
-        } else if (id == R.id.nav_about) {
-            startActivityByName(About.class, true);
+        if (id == R.id.nav_about) {
+            startActivityByName(About.class, false);
         } else if (id == R.id.nav_setting) {
-            startActivityByName(Settings.class, true);
+            startActivityByName(Settings.class, false);
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;

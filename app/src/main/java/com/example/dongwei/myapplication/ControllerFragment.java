@@ -1,5 +1,7 @@
 package com.example.dongwei.myapplication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -77,7 +79,8 @@ public class ControllerFragment extends Fragment {
         sw.setEnabled(isEnable);*/
 
         /*回调方式*/
-        String ip = Constants.IP_ADDRESS;
+        SharedPreferences sp = getActivity().getSharedPreferences("ip_address", Context.MODE_PRIVATE);
+        String ip = sp.getString("ip_address", Constants.IP_ADDRESS);
         int port = Constants.PORT;
         utils = (SocketUtils) getArguments().getSerializable("arg");
         utils.connect2Server(ip, port, new SocketUtils.OnConnectedListener() {

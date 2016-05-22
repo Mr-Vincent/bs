@@ -2,6 +2,7 @@ package com.example.dongwei.myapplication;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.net.Socket;
 
 /**
@@ -10,7 +11,7 @@ import java.net.Socket;
  * @author:Administrator
  * @date:2016/4/10
  */
-public class TCPClient {
+public class TCPClient implements Serializable{
     Socket socket;
     OutputStream outputStream;
     /**
